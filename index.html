@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Aluguel de Equipamentos de TI</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <h1>Aluguel de Equipamentos de TI</h1>
+    <p>Cadastro e controle de aluguel de computadores, servidores e dispositivos</p>
+  </header>
+
+  <main>
+    <section class="card">
+      <h2>Cadastro de Equipamento</h2>
+      <form id="equipment-form">
+        <div class="row">
+          <label>Tipo<input name="type" required placeholder="Computador, Servidor..." /></label>
+          <label>Modelo<input name="model" required /></label>
+        </div>
+        <div class="row">
+          <label>Serial<input name="serial" required /></label>
+          <label>Valor diário (R$)<input name="dailyRate" type="number" step="0.01" min="0" required /></label>
+        </div>
+        <div class="actions">
+          <button type="submit">Cadastrar Equipamento</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="card">
+      <h2>Novo Aluguel</h2>
+      <form id="rental-form">
+        <div class="row">
+          <label>Equipamento
+            <select name="equipmentId" id="equipment-select" required>
+              <option value="">-- selecione --</option>
+            </select>
+          </label>
+          <label>Locatário<input name="renter" required /></label>
+        </div>
+        <div class="row">
+          <label>Data Início<input name="startDate" type="date" required /></label>
+          <label>Data Fim<input name="endDate" type="date" required /></label>
+        </div>
+        <div class="row">
+          <label>Valor total (R$)<input name="total" id="rental-total" readonly /></label>
+          <label>Observações<input name="notes" /></label>
+        </div>
+        <div class="actions">
+          <button type="submit">Registrar Aluguel</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="card two-cols">
+      <div>
+        <h2>Equipamentos</h2>
+        <table id="equipments-table">
+          <thead><tr><th>Tipo</th><th>Modelo</th><th>Serial</th><th>Valor/dia</th><th>Ações</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+
+      <div>
+        <h2>Aluguéis</h2>
+        <table id="rentals-table">
+          <thead><tr><th>Equipamento</th><th>Locatário</th><th>Período</th><th>Valor</th><th>Status</th><th>Ações</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Exportar / Importar</h2>
+      <p>Baixe os dados ou carregue um arquivo JSON para restaurar.</p>
+      <div class="row">
+        <button id="export-btn">Exportar Dados</button>
+        <input type="file" id="import-file" accept=".json" />
+        <button id="clear-btn" class="danger">Limpar tudo</button>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <small>Gerado por sistema simples — dados salvos no armazenamento local do navegador.</small>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
