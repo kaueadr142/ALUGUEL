@@ -1,93 +1,93 @@
-<!doctype html>
-<html lang="pt-BR">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Aluguel de Equipamentos de TI</title>
-  <link rel="stylesheet" href="styles.css" />
-</head>
-<body>
-  <header>
-    <h1>Aluguel de Equipamentos de TI</h1>
-    <p>Cadastro e controle de aluguel de computadores, servidores e dispositivos</p>
+<!doctype html> <!-- Define o tipo de documento como HTML5 -->
+<html lang="pt-BR"> <!-- Informa o idioma padrão da página -->
+<head> <!-- Início do cabeçalho da página -->
+  <meta charset="utf-8" /> <!-- Define a codificação de caracteres como UTF-8 -->
+  <meta name="viewport" content="width=device-width,initial-scale=1" /> <!-- Ajusta a página para telas móveis -->
+  <title>Aluguel de Equipamentos de TI</title> <!-- Título exibido na aba do navegador -->
+  <link rel="stylesheet" href="styles.css" /> <!-- Importa o arquivo CSS externo -->
+</head> <!-- Fim do cabeçalho -->
+<body> <!-- Início do corpo da página -->
+  <header> <!-- Cabeçalho visual da página -->
+    <h1>Aluguel de Equipamentos de TI</h1> <!-- Título principal -->
+    <p>Cadastro e controle de aluguel de computadores, servidores e dispositivos</p> <!-- Subtítulo -->
   </header>
 
-  <main>
-    <section class="card">
-      <h2>Cadastro de Equipamento</h2>
-      <form id="equipment-form">
-        <div class="row">
-          <label>Tipo<input name="type" required placeholder="Computador, Servidor..." /></label>
-          <label>Modelo<input name="model" required /></label>
+  <main> <!-- Conteúdo principal da página -->
+    <section class="card"> <!-- Seção estilizada em formato de cartão -->
+      <h2>Cadastro de Equipamento</h2> <!-- Título da seção -->
+      <form id="equipment-form"> <!-- Formulário para cadastrar equipamentos -->
+        <div class="row"> <!-- Linha agrupando elementos -->
+          <label>Tipo<input name="type" required placeholder="Computador, Servidor..." /></label> <!-- Campo de tipo -->
+          <label>Modelo<input name="model" required /></label> <!-- Campo de modelo -->
         </div>
-        <div class="row">
-          <label>Serial<input name="serial" required /></label>
-          <label>Valor diário (R$)<input name="dailyRate" type="number" step="0.01" min="0" required /></label>
+        <div class="row"> <!-- Nova linha -->
+          <label>Serial<input name="serial" required /></label> <!-- Campo de número de série -->
+          <label>Valor diário (R$)<input name="dailyRate" type="number" step="0.01" min="0" required /></label> <!-- Campo de valor/dia -->
         </div>
-        <div class="actions">
-          <button type="submit">Cadastrar Equipamento</button>
+        <div class="actions"> <!-- Área de botões -->
+          <button type="submit">Cadastrar Equipamento</button> <!-- Botão de envio -->
         </div>
-      </form>
+      </form> <!-- Fim do formulário -->
     </section>
 
-    <section class="card">
-      <h2>Novo Aluguel</h2>
-      <form id="rental-form">
-        <div class="row">
+    <section class="card"> <!-- Seção de novo aluguel -->
+      <h2>Novo Aluguel</h2> <!-- Título da seção -->
+      <form id="rental-form"> <!-- Formulário de aluguéis -->
+        <div class="row"> <!-- Linha -->
           <label>Equipamento
-            <select name="equipmentId" id="equipment-select" required>
-              <option value="">-- selecione --</option>
+            <select name="equipmentId" id="equipment-select" required> <!-- Lista de equipamentos -->
+              <option value="">-- selecione --</option> <!-- Opção padrão -->
             </select>
           </label>
-          <label>Locatário<input name="renter" required /></label>
+          <label>Locatário<input name="renter" required /></label> <!-- Campo locatário -->
         </div>
-        <div class="row">
-          <label>Data Início<input name="startDate" type="date" required /></label>
-          <label>Data Fim<input name="endDate" type="date" required /></label>
+        <div class="row"> <!-- Linha -->
+          <label>Data Início<input name="startDate" type="date" required /></label> <!-- Campo data inicial -->
+          <label>Data Fim<input name="endDate" type="date" required /></label> <!-- Campo data final -->
         </div>
-        <div class="row">
-          <label>Valor total (R$)<input name="total" id="rental-total" readonly /></label>
-          <label>Observações<input name="notes" /></label>
+        <div class="row"> <!-- Linha -->
+          <label>Valor total (R$)<input name="total" id="rental-total" readonly /></label> <!-- Valor calculado -->
+          <label>Observações<input name="notes" /></label> <!-- Campo de notas -->
         </div>
-        <div class="actions">
-          <button type="submit">Registrar Aluguel</button>
+        <div class="actions"> <!-- Botões -->
+          <button type="submit">Registrar Aluguel</button> <!-- Submeter -->
         </div>
       </form>
     </section>
 
-    <section class="card two-cols">
-      <div>
-        <h2>Equipamentos</h2>
-        <table id="equipments-table">
-          <thead><tr><th>Tipo</th><th>Modelo</th><th>Serial</th><th>Valor/dia</th><th>Ações</th></tr></thead>
-          <tbody></tbody>
+    <section class="card two-cols"> <!-- Seção com duas colunas -->
+      <div> <!-- Primeira coluna -->
+        <h2>Equipamentos</h2> <!-- Título da lista -->
+        <table id="equipments-table"> <!-- Tabela de equipamentos -->
+          <thead><tr><th>Tipo</th><th>Modelo</th><th>Serial</th><th>Valor/dia</th><th>Ações</th></tr></thead> <!-- Cabeçalho -->
+          <tbody></tbody> <!-- Corpo da tabela -->
         </table>
       </div>
 
-      <div>
-        <h2>Aluguéis</h2>
-        <table id="rentals-table">
-          <thead><tr><th>Equipamento</th><th>Locatário</th><th>Período</th><th>Valor</th><th>Status</th><th>Ações</th></tr></thead>
-          <tbody></tbody>
+      <div> <!-- Segunda coluna -->
+        <h2>Aluguéis</h2> <!-- Título da lista -->
+        <table id="rentals-table"> <!-- Tabela de aluguéis -->
+          <thead><tr><th>Equipamento</th><th>Locatário</th><th>Período</th><th>Valor</th><th>Status</th><th>Ações</th></tr></thead> <!-- Cabeçalho -->
+          <tbody></tbody> <!-- Corpo -->
         </table>
       </div>
     </section>
 
-    <section class="card">
-      <h2>Exportar / Importar</h2>
-      <p>Baixe os dados ou carregue um arquivo JSON para restaurar.</p>
-      <div class="row">
-        <button id="export-btn">Exportar Dados</button>
-        <input type="file" id="import-file" accept=".json" />
-        <button id="clear-btn" class="danger">Limpar tudo</button>
+    <section class="card"> <!-- Seção de exportação/importação -->
+      <h2>Exportar / Importar</h2> <!-- Título -->
+      <p>Baixe os dados ou carregue um arquivo JSON para restaurar.</p> <!-- Instrução -->
+      <div class="row"> <!-- Linha -->
+        <button id="export-btn">Exportar Dados</button> <!-- Botão exportar -->
+        <input type="file" id="import-file" accept=".json" /> <!-- Entrada para importar JSON -->
+        <button id="clear-btn" class="danger">Limpar tudo</button> <!-- Botão de limpar -->
       </div>
     </section>
   </main>
 
-  <footer>
-    <small>Gerado por sistema simples — dados salvos no armazenamento local do navegador.</small>
+  <footer> <!-- Rodapé -->
+    <small>Gerado por sistema simples — dados salvos no armazenamento local do navegador.</small> <!-- Informação -->
   </footer>
 
-  <script src="app.js"></script>
-</body>
-</html>
+  <script src="app.js"></script> <!-- Importa o script principal -->
+</body> <!-- Fim do corpo -->
+</html> <!-- Fim do documento -->
